@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Homepage </title>
+
+  <!-- Google Icons Link -->
+  <script src="https://kit.fontawesome.com/f0ae8b0695.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+</head>
+<style>
+  /* Importing Google font - Fira Sans */
+  @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 20px;
+  }
+
+  header .navbar {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .navbar .menu-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+  }
+
+  .navbar .menu-links li a {
+    color: #000000;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+
+  .navbar .menu-links .language-item a {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .navbar .menu-links .language-item span {
+    font-size: 1.3rem;
+  }
+
+  .navbar .menu-links li a:hover {
+    color: #0087e8;
+  }
+
+  .navbar .menu-links .join-btn a {
+    border: 1px solid #000000;
+    padding: 8px 15px;
+    border-radius: 50px;
+  }
+
+  .navbar .menu-links .join-btn a:hover {
+    color: #ffffff;
+    border-color: transparent;
+    background: #0087e8;
+  }
+
+  .hero-section {
+    height: 100vh;
+    background-image: url("one.jpeg.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+  }
+
+  .about-section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+  }
+
+  .hero-section .content {
+    max-width: 1280px;
+    margin: 0 auto 40px;
+    width: 100%;
+  }
+
+  .hero-section .content h1 {
+    color: #000000;
+    font-size: 3rem;
+    max-width: 630px;
+    line-height: 65px;
+  }
+
+
+  .navbar #hamburger-btn {
+    color: #000000;
+    cursor: pointer;
+    display: none;
+    font-size: 1.7rem;
+  }
+
+  .navbar #close-menu-btn {
+    position: absolute;
+    display: none;
+    color: #000;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 1.7rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    header.show-mobile-menu::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      backdrop-filter: blur(5px);
+    }
+
+    .navbar .menu-links {
+      height: 100vh;
+      max-width: 300px;
+      width: 100%;
+      background: #fff;
+      position: fixed;
+      left: -300px;
+      top: 0;
+      display: block;
+      padding: 75px 40px 0;
+      transition: left 0.2s ease;
+    }
+
+    header.show-mobile-menu .navbar .menu-links {
+      left: 0;
+    }
+
+    .navbar .menu-links li {
+      margin-bottom: 30px;
+    }
+
+    .navbar .menu-links li a {
+      color: #000;
+      font-size: 1.1rem;
+    }
+
+    .navbar .menu-links .join-btn a {
+      padding: 0;
+    }
+
+    .navbar .menu-links .join-btn a:hover {
+      color: #0087e8;
+      background: none;
+    }
+
+    .navbar :is(#close-menu-btn, #hamburger-btn) {
+      display: block;
+    }
+
+    .hero-section {
+      background: none;
+    }
+
+    .hero-section .content {
+      margin: 0 auto 80px;
+    }
+
+    .hero-section .content :is(h1, .search-form) {
+      max-width: 100%;
+    }
+
+    .hero-section .content h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      line-height: 55px;
+    }
+
+    .hero-section .popular-tags {
+      display: none;
+    }
+  }
+
+
+
+
+
+  .buttons .button {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    padding: 12px 38px;
+    background: linear-gradient(90deg, #1928d5, #3fb6f1);
+    border-radius: 45px;
+    margin: 20px 0px 20px 0px;
+    font-size: 28px;
+    font-weight: 400;
+    text-decoration: none;
+    box-shadow: 3px 5px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .buttons .button .overlay {
+    position: absolute;
+    background: #fff;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: blink 0.5s linear;
+  }
+
+  @keyframes blink {
+    0% {
+      height: 0px;
+      width: 0px;
+      opacity: 0.3;
+    }
+
+    100% {
+      height: 400px;
+      width: 400px;
+      opacity: 0;
+    }
+  }
+
+
+
+  .contact-section {
+    background: #f4f4f4;
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .contact-section .content {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .contact-section h2 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  .contact-section p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .contact-section .left-side {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contact-section .details {
+    flex: 1;
+    padding: 20px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-section .details i {
+    font-size: 24px;
+    color: #0087e8;
+  }
+
+  .contact-section .details .topic {
+    font-size: 1.2rem;
+    color: #000;
+    margin: 10px 0;
+  }
+
+  .contact-section .details .text-one,
+  .contact-section .details .text-two {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .contact-section .right-side {
+    text-align: left;
+  }
+
+  .contact-section .topic-text {
+    font-size: 1.8rem;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  .contact-section form {
+    text-align: left;
+  }
+
+  .contact-section .input-box {
+    margin-bottom: 20px;
+  }
+
+  .contact-section .input-box input,
+  .contact-section .input-box textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .contact-section .button input {
+    background: #0087e8;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+  }
+
+  .contact-section .button input:hover {
+    background: #0072c1;
+  }
+
+
+
+  .about-section {
+    background: #f4f4f4;
+    padding: 80px 0;
+    text-align: center;
+  }
+
+  .about-section .content {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .about-section h2 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  .about-section p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .about-section .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-section .card {
+    flex: 1;
+    margin: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+  }
+
+  .about-section .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #fff;
+  }
+
+  .about-section .card .student-info {
+    margin-top: 20px;
+  }
+
+  header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* increased z-index to make sure it's on top of all other elements */
+    padding: 20px;
+    background-color: #ffffff;
+    /* adding a background to make the navbar opaque */
+    background-color: rgba(255, 255, 255, 1);
+    /* adding a slightly transparent white background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-section {
+    height: calc(100vh - 60px);
+    /* adjusted the height for better spacing */
+    margin-top: 60px;
+    /* added a margin to the top of the hero section equal to the navbar height */
+    background-image: url("one.jpeg.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+    align-items: center;
+
+  }
+</style>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#hero" class="logo"
+        style="font-family: monospace; text-decoration: none; font-weight: 800; font-size: 30px; color: #0087e8;"><i
+          class="fa-solid fa-magnifying-glass"></i> Foundify</a>
+      <ul class="menu-links">
+        <li><a href="#aboutus">About us</a></li>
+        <li><a href="#contactus">Contact us</a></li>
+
+        <li class="join-btn"><a href="/signup_page">Get started</a></li>
+        <span id="close-menu-btn" class="material-symbols-outlined">close</span>
+      </ul>
+      <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+    </nav>
+  </header>
+
+  <section class="hero-section" id="hero">
+    <div class="content">
+      <h1> Foundify - where lost meets found, and stories unfold</h1>
+      <div class="buttons">
+        <a class="button" href="/signup_page">Get started</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="aboutus">
+    <div class="content">
+      <h2>About Us</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="image">
+            <img src="/koti.jpg" alt="Student 1">
+          </div>
+          <h2>Manepalli Koti sai</h2>
+          <p>Front end developer</p>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="/roshan.jpg" alt="Student 2">
+          </div>
+          <h2>Gogulamanda Roshan</h2>
+          <p>UI Designer & Back end developer</p>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="/vivek.jpg" alt="Student 3">
+          </div>
+          <h2>Burada Vivek</h2>
+          <p>Full Stack Developer</p>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="kv.jpg" alt="Student 4">
+          </div>
+          <h2>Krishna Vamsi</h2>
+          <p>BackEnd Developer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="contact-section" id="contactus">
+    <div class="content">
+      <h2>Contact Us</h2>
+      <p>If you have any work for us or any questions related to our website, feel free to reach out. We're here to
+        help!</p>
+      <div class="left-side">
+        <div class="details">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="topic">Address</div>
+          <div class="text-one">Rajahmundry, AP</div>
+          <div class="text-two">Bommuru-533124</div>
+        </div>
+        <div class="details">
+          <i class="fas fa-phone-alt"></i>
+          <div class="topic">Phone</div>
+          <div class="text-one">+91 7013714901</div>
+          <div class="text-two">+91 8142093177</div>
+        </div>
+        <div class="details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">21pa1a5416@vishnu.edu.in</div>
+          <div class="text-two">21pa1a5433@vishnu.edu.in</div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="topic-text">Send us a message</div>
+        <form action="#">
+          <div class="input-box">
+            <input type="text" placeholder="Your name">
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Your email">
+          </div>
+          <div class="input-box message-box">
+            <textarea placeholder="Your Message"></textarea>
+          </div>
+          <div class="button">
+            <input type="button" value="Send Now">
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const header = document.querySelector("header");
+    const hamburgerBtn = document.querySelector("#hamburger-btn");
+    const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+    // Toggle mobile menu on hamburger button click
+    hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+
+    // Close mobile menu on close button click
+    closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+  </script>
+  <script>
+    // Ripple Effect JavaScript Code
+    let buttons = document.querySelectorAll(".button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener("click", (e) => {
+        e.preventDefault(); // preventing form submitting
+        let overlay = document.createElement('span'); //creating a tag(span)
+        overlay.classList.add("overlay"); //adding a class inside the span
+        e.target.appendChild(overlay); //adding overlay tag inside the anchor tag at in HTML
+        let xValue = e.clientX - e.target.offsetLeft; //by this we get perfect value where we will click
+        let yValue = e.clientY - e.target.offsetTop; //by this we get perfect value where we will click
+        overlay.style.left = xValue + "px"; //changing the position of the overlay according to our clicks on the button
+        overlay.style.top = yValue + "px"; //changing the position of the overlay according to our clicks on the button
+      });
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const getStartedButton = document.querySelector('.button');
+
+      getStartedButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default behavior (which is to navigate to the href)
+        // Add any custom logic you want to perform on button click here
+        // For example, you can show a modal, toggle a form, etc.
+        window.location.href = '/signup_page'; // This will redirect to /user
+      });
+    });
+  </script>
+</body>
+
+</html>
